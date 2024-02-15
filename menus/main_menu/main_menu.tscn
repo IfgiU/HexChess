@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ckc46lj5uch6j"]
+[gd_scene load_steps=7 format=3 uid="uid://ckc46lj5uch6j"]
 
 [ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="1_dltid"]
+[ext_resource type="Script" path="res://menus/main_menu/AnimationSpawner.gd" id="2_ip6r2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wurec"]
 corner_radius_top_left = 100
@@ -131,13 +132,33 @@ text = "Credits"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="AnimationSpawnTimer" type="Timer" parent="Padding/SideMenu/Animation"]
+[node name="AnimationSpawner" type="Control" parent="Padding/SideMenu/Animation"]
+layout_mode = 1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ip6r2")
+
+[node name="AnimationSpawnTimer" type="Timer" parent="Padding/SideMenu/Animation/AnimationSpawner"]
 wait_time = 0.6
 autostart = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.113725, 0.027451, 0.00392157, 1)
 
 [connection signal="pressed" from="Padding/SideMenu/OptionsList/Start/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="Padding/SideMenu/OptionsList/Help/Help" to="." method="_on_help_pressed"]
 [connection signal="pressed" from="Padding/SideMenu/OptionsList/Options/Options" to="." method="_on_options_pressed"]
 [connection signal="pressed" from="Padding/SideMenu/OptionsList/Quit/Quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="Padding/SideMenu/OptionsList/Credits/Credits" to="." method="_on_credits_pressed"]
-[connection signal="timeout" from="Padding/SideMenu/Animation/AnimationSpawnTimer" to="." method="_spawn_animation"]
+[connection signal="timeout" from="Padding/SideMenu/Animation/AnimationSpawner/AnimationSpawnTimer" to="Padding/SideMenu/Animation/AnimationSpawner" method="_on_timer"]

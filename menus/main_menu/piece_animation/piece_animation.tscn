@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bd2ysbs3ayxu5"]
+[gd_scene load_steps=8 format=3 uid="uid://bd2ysbs3ayxu5"]
 
 [ext_resource type="Script" path="res://menus/main_menu/piece_animation/piece_animation.gd" id="1_lj2xg"]
 [ext_resource type="Texture2D" uid="uid://donh4v1mldoqb" path="res://components/pieces/bishop/wB.png" id="2_o7tug"]
@@ -8,33 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cvsjcmn8f5g3" path="res://components/pieces/queen/wQ.png" id="6_e5v6l"]
 [ext_resource type="Texture2D" uid="uid://dvstsnyho53xl" path="res://components/pieces/rook/wR.png" id="7_1qpx5"]
 
-[sub_resource type="Animation" id="Animation_ygjia"]
-resource_name = "spin_and_dissapear"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 6.28319]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vtkib"]
-_data = {
-"spin_and_dissapear": SubResource("Animation_ygjia")
-}
-
 [node name="PieceAnimation" type="Sprite2D"]
+texture = ExtResource("5_g6yhx")
 script = ExtResource("1_lj2xg")
 possible_textures = Array[Texture2D]([ExtResource("2_o7tug"), ExtResource("3_etyi6"), ExtResource("4_x1rqh"), ExtResource("5_g6yhx"), ExtResource("6_e5v6l"), ExtResource("7_1qpx5")])
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vtkib")
-}
-
-[node name="Camera2D" type="Camera2D" parent="."]

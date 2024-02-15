@@ -1,9 +1,8 @@
 extends Control
 
 
-# Fancy menu effect
-func _spawn_animation():
-	pass
+func _ready():
+	RenderingServer.set_default_clear_color(Global.main_color)
 
 
 func _on_start_pressed():
