@@ -16,7 +16,7 @@ func _ready():
 	
 	# size animation
 	var start_size: = .2
-	var end_size: = randi_range(2.5, 3)
+	var end_size: = randf_range(2.5, 3)
 	scale = Vector2(start_size, start_size)
 	animation.tween_property($".", "scale", Vector2(end_size, end_size), 1)
 	
