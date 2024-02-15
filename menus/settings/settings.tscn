@@ -1,0 +1,139 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4pqds6kbes2f"]
+
+[ext_resource type="Script" path="res://menus/settings/ColorPickerButton.gd" id="1_oxkcx"]
+[ext_resource type="Script" path="res://menus/settings/settings.gd" id="1_whcjq"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_whcjq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+tab_alignment = 1
+
+[node name="Audio" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+
+[node name="PlayAudio" type="CheckBox" parent="VBoxContainer/TabContainer/Audio"]
+layout_mode = 2
+text = "Play move and check sounds"
+
+[node name="Graphics" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+
+[node name="UseMainColor" type="CheckBox" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+size_flags_vertical = 0
+button_pressed = true
+text = "Use main color (Will ignore secondary colors and instead base all colors on the main one)"
+
+[node name="MainColor" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/MainColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/MainColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Main Color"
+
+[node name="SecondaryColor1" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/SecondaryColor1"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/SecondaryColor1"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "1. Secondary Color"
+
+[node name="SecondaryColor2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/SecondaryColor2"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/SecondaryColor2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "2. Secondary Color"
+
+[node name="WhitePiecesColor" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/WhitePiecesColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/WhitePiecesColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "White Pieces Color"
+
+[node name="BlackPiecesColor" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/BlackPiecesColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/BlackPiecesColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Black Pieces Color"
+
+[node name="PlayAnim" type="CheckBox" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+text = "Play fancy animation when a move is made"
+
+[node name="BottomMenu" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer/BottomMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "<- Back"
+
+[connection signal="pressed" from="VBoxContainer/BottomMenu/BackButton" to="." method="save_and_quit"]

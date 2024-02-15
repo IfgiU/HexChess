@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dyfu5c8jwb10r"]
+
+[ext_resource type="Script" path="res://components/tile/tile.gd" id="1_yxodd"]
+[ext_resource type="Texture2D" uid="uid://b3aqxccjhaoqi" path="res://components/tile/hexagon.png" id="2_gcc3s"]
+
+[node name="tile" type="Node2D"]
+script = ExtResource("1_yxodd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_gcc3s")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(300, 0, 151, 260, -151, 260, -300, 0, -151, -260, 151, -260)

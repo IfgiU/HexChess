@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=3 uid="uid://bv2xgifenj7ux"]
+
+[ext_resource type="Script" path="res://components/menus/end_screen/end_screen.gd" id="1_0a3ol"]
+[ext_resource type="Texture2D" uid="uid://cx2afyiarjb6f" path="res://components/pieces/king/wK.png" id="2_j78ju"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qnrl"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 50
+corner_radius_bottom_left = 50
+shadow_color = Color(0, 0, 0, 0.258824)
+shadow_size = 50
+
+[sub_resource type="LabelSettings" id="LabelSettings_fo6xd"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ngjf3"]
+
+[node name="EndScreen" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -340.0
+offset_right = 160.0
+offset_bottom = 340.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6qnrl")
+script = ExtResource("1_0a3ol")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="EndScreenContent" type="VBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="MarginContainer/EndScreenContent"]
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_fo6xd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecondLabel" type="Label" parent="MarginContainer/EndScreenContent"]
+layout_mode = 2
+size_flags_vertical = 0
+label_settings = SubResource("LabelSettings_ngjf3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinnerKing" type="TextureRect" parent="MarginContainer/EndScreenContent"]
+layout_mode = 2
+texture = ExtResource("2_j78ju")
+stretch_mode = 5
+
+[node name="Analyze" type="Button" parent="MarginContainer/EndScreenContent"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Copy Match PGN"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/EndScreenContent"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Rematch" type="Button" parent="MarginContainer/EndScreenContent/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rematch"
+
+[node name="Quit" type="Button" parent="MarginContainer/EndScreenContent/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Main Menu"
+
+[connection signal="pressed" from="MarginContainer/EndScreenContent/HBoxContainer/Rematch" to="." method="_on_rematch_pressed"]
+[connection signal="pressed" from="MarginContainer/EndScreenContent/HBoxContainer/Quit" to="." method="_on_quit_pressed"]

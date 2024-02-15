@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvn4py2r71ksw"]
+
+[ext_resource type="Script" path="res://components/pieces/base_piece/base_piece.gd" id="1_en8gn"]
+[ext_resource type="Animation" uid="uid://f3pch75v8qwr" path="res://components/animations/player_change_anim.res" id="2_pc3g0"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlfn0"]
+_data = {
+"player_change_anim": ExtResource("2_pc3g0")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sclhm"]
+size = Vector2(13, 26)
+
+[node name="BasePiece" type="Node2D"]
+script = ExtResource("1_en8gn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"Test": SubResource("AnimationLibrary_nlfn0")
+}
+
+[node name="Texture" type="Sprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+scale = Vector2(15, 15)
+shape = SubResource("RectangleShape2D_sclhm")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]

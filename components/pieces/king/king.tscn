@@ -1,0 +1,65 @@
+[gd_scene load_steps=8 format=3 uid="uid://b7n3uknn6xiuo"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4py2r71ksw" path="res://components/pieces/base_piece/base_piece.tscn" id="1_2fl2h"]
+[ext_resource type="Script" path="res://components/pieces/king/king.gd" id="2_rg4k2"]
+[ext_resource type="Texture2D" uid="uid://cx2afyiarjb6f" path="res://components/pieces/king/wK.png" id="3_un567"]
+[ext_resource type="Animation" uid="uid://f3pch75v8qwr" path="res://components/animations/player_change_anim.res" id="4_ibstw"]
+
+[sub_resource type="Animation" id="Animation_jy66s"]
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Texture:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.3, 0, -300, -0.25, 0, 0.7, 0, 10000, 0, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Texture:position:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 500.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Texture:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.7, 1, 1.0001),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 2.61799, 2.79253, 3.14159, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7ylpe"]
+_data = {
+"king_checkmate": SubResource("Animation_jy66s")
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlfn0"]
+_data = {
+"player_change_anim": ExtResource("4_ibstw")
+}
+
+[node name="King" instance=ExtResource("1_2fl2h")]
+script = ExtResource("2_rg4k2")
+
+[node name="AnimationPlayer" parent="." index="0"]
+libraries = {
+"King": SubResource("AnimationLibrary_7ylpe"),
+"Test": SubResource("AnimationLibrary_nlfn0")
+}
+
+[node name="Texture" parent="." index="1"]
+texture = ExtResource("3_un567")

@@ -1,0 +1,143 @@
+[gd_scene load_steps=6 format=3 uid="uid://ckc46lj5uch6j"]
+
+[ext_resource type="Script" path="res://menus/main_menu/main_menu.gd" id="1_dltid"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wurec"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mgd3c"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ug0j3"]
+corner_radius_top_left = 50
+corner_radius_top_right = 50
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j6vrv"]
+corner_radius_top_left = 25
+corner_radius_top_right = 25
+corner_radius_bottom_right = 25
+corner_radius_bottom_left = 25
+expand_margin_left = 10.0
+expand_margin_right = 10.0
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_dltid")
+
+[node name="Padding" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="SideMenu" type="HBoxContainer" parent="Padding"]
+layout_mode = 2
+
+[node name="OptionsList" type="VBoxContainer" parent="Padding/SideMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+theme_override_font_sizes/italics_font_size = 150
+bbcode_enabled = true
+text = "[i]HexChess"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+shortcut_keys_enabled = false
+
+[node name="Start" type="MarginContainer" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_bottom = 5
+
+[node name="Start" type="Button" parent="Padding/SideMenu/OptionsList/Start"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_wurec")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wurec")
+text = "1v1 offline"
+
+[node name="Help" type="MarginContainer" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Help" type="Button" parent="Padding/SideMenu/OptionsList/Help"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgd3c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mgd3c")
+text = "How to play"
+
+[node name="Options" type="MarginContainer" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Options" type="Button" parent="Padding/SideMenu/OptionsList/Options"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_mgd3c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mgd3c")
+text = "Options"
+
+[node name="Quit" type="MarginContainer" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_top = 5
+
+[node name="Quit" type="Button" parent="Padding/SideMenu/OptionsList/Quit"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_ug0j3")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ug0j3")
+text = "Quit"
+
+[node name="Credits" type="MarginContainer" parent="Padding/SideMenu/OptionsList"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 10
+
+[node name="Credits" type="Button" parent="Padding/SideMenu/OptionsList/Credits"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_j6vrv")
+text = "Credits"
+
+[node name="Animation" type="Control" parent="Padding/SideMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AnimationSpawnTimer" type="Timer" parent="Padding/SideMenu/Animation"]
+wait_time = 0.6
+autostart = true
+
+[connection signal="pressed" from="Padding/SideMenu/OptionsList/Start/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Padding/SideMenu/OptionsList/Help/Help" to="." method="_on_help_pressed"]
+[connection signal="pressed" from="Padding/SideMenu/OptionsList/Options/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="Padding/SideMenu/OptionsList/Quit/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Padding/SideMenu/OptionsList/Credits/Credits" to="." method="_on_credits_pressed"]
+[connection signal="timeout" from="Padding/SideMenu/Animation/AnimationSpawnTimer" to="." method="_spawn_animation"]

@@ -1,0 +1,158 @@
+[gd_scene load_steps=17 format=3 uid="uid://bclhuqahq2axt"]
+
+[ext_resource type="Script" path="res://menus/game_ui/GameUI.gd" id="1_828fl"]
+[ext_resource type="Script" path="res://menus/game/promote_menu_buttons.gd" id="1_aubo6"]
+[ext_resource type="Texture2D" uid="uid://donh4v1mldoqb" path="res://components/pieces/bishop/wB.png" id="2_1no8j"]
+[ext_resource type="PackedScene" uid="uid://btbjjhh4gpc7f" path="res://menus/game/game.tscn" id="2_x8mec"]
+[ext_resource type="Texture2D" uid="uid://du3mne05o3prx" path="res://components/pieces/knight/wN.png" id="3_bmt5j"]
+[ext_resource type="Script" path="res://menus/game_ui/UI.gd" id="3_iao7v"]
+[ext_resource type="Texture2D" uid="uid://cvsjcmn8f5g3" path="res://components/pieces/queen/wQ.png" id="4_14mwt"]
+[ext_resource type="PackedScene" uid="uid://bv2xgifenj7ux" path="res://components/menus/end_screen/end_screen.tscn" id="4_otjgh"]
+[ext_resource type="Texture2D" uid="uid://dvstsnyho53xl" path="res://components/pieces/rook/wR.png" id="5_dbx6n"]
+[ext_resource type="AudioStream" uid="uid://ykol4q5nf7m7" path="res://components/audio/sfx/check.ogg" id="8_w03lm"]
+[ext_resource type="AudioStream" uid="uid://bkn6h05vnar1i" path="res://components/audio/sfx/Move1.ogg" id="9_pxttv"]
+[ext_resource type="Script" path="res://menus/game_ui/move_sound_manager.gd" id="10_8jdpd"]
+[ext_resource type="AudioStream" uid="uid://dubijcpynimdi" path="res://components/audio/sfx/Move2.ogg" id="11_7i8jo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pihwe"]
+corner_radius_top_left = 100
+corner_radius_top_right = 100
+corner_radius_bottom_right = 100
+corner_radius_bottom_left = 100
+expand_margin_left = 20.0
+expand_margin_right = 20.0
+
+[sub_resource type="Animation" id="Animation_mhdq7"]
+resource_name = "EndScreen_popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("EndScreen:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vpwwf"]
+_data = {
+"EndScreen_popup": SubResource("Animation_mhdq7")
+}
+
+[node name="GameUI" type="Node2D"]
+script = ExtResource("1_828fl")
+
+[node name="Board" parent="." instance=ExtResource("2_x8mec")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_iao7v")
+
+[node name="MarginContainer" type="MarginContainer" parent="UI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="Quit" type="Button" parent="UI/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 1
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_pihwe")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pihwe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pihwe")
+text = "Quit game"
+
+[node name="EndScreen" parent="UI" instance=ExtResource("4_otjgh")]
+visible = false
+modulate = Color(1, 1, 1, 0)
+mouse_filter = 1
+
+[node name="Promotion" type="Control" parent="UI"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Promotion"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 200
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 200
+theme_override_constants/margin_bottom = 200
+
+[node name="PanelContainer" type="PanelContainer" parent="UI/Promotion/MarginContainer"]
+layout_mode = 2
+mouse_filter = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="UI/Promotion/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+script = ExtResource("1_aubo6")
+
+[node name="Bishop" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("2_1no8j")
+
+[node name="Knight" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("3_bmt5j")
+
+[node name="Queen" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("4_14mwt")
+
+[node name="Rook" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 1
+texture_normal = ExtResource("5_dbx6n")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
+libraries = {
+"": SubResource("AnimationLibrary_vpwwf")
+}
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.18, 0.18)
+
+[node name="CheckSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_w03lm")
+bus = &"SFX"
+
+[node name="MoveSound" type="AudioStreamPlayer" parent="."]
+script = ExtResource("10_8jdpd")
+move_sounds = Array[AudioStream]([ExtResource("9_pxttv"), ExtResource("11_7i8jo")])
+
+[connection signal="promotion_piece_selected" from="." to="Board" method="_on_game_ui_promotion_piece_selected"]
+[connection signal="check" from="Board" to="." method="_on_check"]
+[connection signal="game_ended" from="Board" to="." method="_on_game_ended"]
+[connection signal="move_sound" from="Board" to="." method="_on_move"]
+[connection signal="promotion" from="Board" to="." method="open_promotion_menu"]
+[connection signal="pressed" from="UI/MarginContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Bishop" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_bishop_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Knight" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_knight_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Queen" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_queen_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Rook" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_rook_pressed"]

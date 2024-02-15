@@ -1,0 +1,377 @@
+[gd_scene load_steps=8 format=3 uid="uid://btbjjhh4gpc7f"]
+
+[ext_resource type="Script" path="res://menus/game/game.gd" id="1_djwsl"]
+[ext_resource type="PackedScene" uid="uid://dyfu5c8jwb10r" path="res://components/tile/tile.tscn" id="2_hnl5f"]
+[ext_resource type="PackedScene" uid="uid://b7n3uknn6xiuo" path="res://components/pieces/king/king.tscn" id="3_l1s42"]
+[ext_resource type="PackedScene" uid="uid://dxxksott3itb7" path="res://components/pieces/rook/rook.tscn" id="4_p5u7n"]
+[ext_resource type="PackedScene" uid="uid://c835n5xjulfc0" path="res://components/pieces/pawn/pawn.tscn" id="5_ouwly"]
+[ext_resource type="Animation" uid="uid://f3pch75v8qwr" path="res://components/animations/player_change_anim.res" id="10_v442v"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qj4g0"]
+_data = {
+"player_change_anim": ExtResource("10_v442v")
+}
+
+[node name="Board" type="Node2D"]
+script = ExtResource("1_djwsl")
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="6_5" parent="Tiles" groups=["5", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, 260)
+
+[node name="5_5" parent="Tiles" groups=["6", "f"] instance=ExtResource("2_hnl5f")]
+color = 1
+
+[node name="7_6" parent="Tiles" groups=["5", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, 0)
+color = 1
+
+[node name="8_6" parent="Tiles" groups=["4", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, 260)
+
+[node name="9_7" parent="Tiles" groups=["4", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, 0)
+color = 1
+
+[node name="10_7" parent="Tiles" groups=["3", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, 260)
+
+[node name="5_4" parent="Tiles" groups=["5", "P_start", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, 520)
+color = 2
+
+[node name="5_3" parent="Tiles" groups=["4", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, 1040)
+
+[node name="5_2" parent="Tiles" groups=["3", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, 1560)
+color = 1
+
+[node name="5_1" parent="Tiles" groups=["2", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, 2080)
+color = 2
+
+[node name="5_0" parent="Tiles" groups=["1", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, 2600)
+
+[node name="5_6" parent="Tiles" groups=["7", "f", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, -520)
+
+[node name="5_7" parent="Tiles" groups=["8", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, -1040)
+color = 2
+
+[node name="5_8" parent="Tiles" groups=["9", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, -1560)
+color = 1
+
+[node name="5_9" parent="Tiles" groups=["10", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, -2080)
+
+[node name="5_10" parent="Tiles" groups=["11", "f"] instance=ExtResource("2_hnl5f")]
+position = Vector2(0, -2600)
+color = 2
+
+[node name="4_4" parent="Tiles" groups=["5", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, 260)
+
+[node name="3_4" parent="Tiles" groups=["5", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, 0)
+color = 1
+
+[node name="2_3" parent="Tiles" groups=["4", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, 260)
+
+[node name="1_3" parent="Tiles" groups=["4", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, 0)
+color = 1
+
+[node name="0_2" parent="Tiles" groups=["3", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, 260)
+
+[node name="0_3" parent="Tiles" groups=["4", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, -260)
+color = 2
+
+[node name="10_8" parent="Tiles" groups=["4", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, -260)
+color = 2
+
+[node name="4_0" parent="Tiles" groups=["1", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, 2340)
+color = 1
+
+[node name="6_1" parent="Tiles" groups=["1", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, 2340)
+color = 1
+
+[node name="4_9" parent="Tiles" groups=["10", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, -2340)
+color = 1
+
+[node name="6_10" parent="Tiles" groups=["10", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, -2340)
+color = 1
+
+[node name="2_4" parent="Tiles" groups=["5", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, -260)
+color = 2
+
+[node name="4_5" parent="Tiles" groups=["6", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, -260)
+color = 2
+
+[node name="6_6" parent="Tiles" groups=["7", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, -260)
+color = 2
+
+[node name="8_7" parent="Tiles" groups=["5", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, -260)
+color = 2
+
+[node name="7_10" parent="Tiles" groups=["9", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, -2080)
+
+[node name="8_10" parent="Tiles" groups=["8", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, -1820)
+color = 2
+
+[node name="9_10" parent="Tiles" groups=["7", "k", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, -1560)
+color = 1
+
+[node name="10_10" parent="Tiles" groups=["6", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, -1300)
+
+[node name="10_9" parent="Tiles" groups=["5", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, -780)
+color = 1
+
+[node name="3_8" parent="Tiles" groups=["9", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, -2080)
+
+[node name="2_7" parent="Tiles" groups=["8", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, -1820)
+color = 2
+
+[node name="1_6" parent="Tiles" groups=["7", "b", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, -1560)
+color = 1
+
+[node name="0_5" parent="Tiles" groups=["6", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, -1300)
+
+[node name="0_4" parent="Tiles" groups=["5", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, -780)
+color = 1
+
+[node name="0_1" parent="Tiles" groups=["2", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, 780)
+color = 1
+
+[node name="0_0" parent="Tiles" groups=["1", "a"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-2255, 1300)
+color = 2
+
+[node name="1_0" parent="Tiles" groups=["1", "P_start", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, 1560)
+color = 1
+
+[node name="2_0" parent="Tiles" groups=["1", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, 1820)
+
+[node name="3_0" parent="Tiles" groups=["1", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, 2080)
+color = 2
+
+[node name="10_6" parent="Tiles" groups=["2", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, 780)
+color = 1
+
+[node name="10_5" parent="Tiles" groups=["1", "l"] instance=ExtResource("2_hnl5f")]
+position = Vector2(2255, 1300)
+color = 2
+
+[node name="9_4" parent="Tiles" groups=["1", "P_start", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, 1560)
+color = 1
+
+[node name="8_3" parent="Tiles" groups=["1", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, 1820)
+
+[node name="7_2" parent="Tiles" groups=["1", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, 2080)
+color = 2
+
+[node name="4_1" parent="Tiles" groups=["2", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, 1820)
+
+[node name="6_2" parent="Tiles" groups=["2", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, 1820)
+
+[node name="4_2" parent="Tiles" groups=["3", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, 1300)
+color = 2
+
+[node name="6_3" parent="Tiles" groups=["3", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, 1300)
+color = 2
+
+[node name="4_3" parent="Tiles" groups=["4", "P_start", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, 780)
+color = 1
+
+[node name="6_4" parent="Tiles" groups=["4", "P_start", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, 780)
+color = 1
+
+[node name="4_8" parent="Tiles" groups=["9", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, -1820)
+color = 2
+
+[node name="6_9" parent="Tiles" groups=["9", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, -1820)
+color = 2
+
+[node name="4_7" parent="Tiles" groups=["8", "e"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, -1300)
+
+[node name="6_8" parent="Tiles" groups=["8", "g"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, -1300)
+
+[node name="4_6" parent="Tiles" groups=["7", "e", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-451, -780)
+color = 1
+
+[node name="6_7" parent="Tiles" groups=["7", "g", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(451, -780)
+color = 1
+
+[node name="7_9" parent="Tiles" groups=["8", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, -1560)
+color = 1
+
+[node name="7_8" parent="Tiles" groups=["7", "h", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, -1040)
+color = 2
+
+[node name="7_7" parent="Tiles" groups=["6", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, -520)
+
+[node name="7_5" parent="Tiles" groups=["4", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, 520)
+color = 2
+
+[node name="7_4" parent="Tiles" groups=["3", "P_start", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, 1040)
+
+[node name="7_3" parent="Tiles" groups=["2", "h"] instance=ExtResource("2_hnl5f")]
+position = Vector2(902, 1560)
+color = 1
+
+[node name="3_1" parent="Tiles" groups=["2", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, 1560)
+color = 1
+
+[node name="3_2" parent="Tiles" groups=["3", "P_start", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, 1040)
+
+[node name="3_3" parent="Tiles" groups=["4", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, 520)
+color = 2
+
+[node name="3_5" parent="Tiles" groups=["6", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, -520)
+
+[node name="3_6" parent="Tiles" groups=["7", "d", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, -1040)
+color = 2
+
+[node name="3_7" parent="Tiles" groups=["8", "d"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-902, -1560)
+color = 1
+
+[node name="1_1" parent="Tiles" groups=["2", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, 1040)
+
+[node name="1_2" parent="Tiles" groups=["3", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, 520)
+color = 2
+
+[node name="1_4" parent="Tiles" groups=["5", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, -520)
+
+[node name="1_5" parent="Tiles" groups=["6", "b"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1804, -1040)
+color = 2
+
+[node name="2_1" parent="Tiles" groups=["2", "P_start", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, 1300)
+color = 2
+
+[node name="2_2" parent="Tiles" groups=["3", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, 780)
+color = 1
+
+[node name="2_5" parent="Tiles" groups=["6", "c"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, -780)
+color = 1
+
+[node name="2_6" parent="Tiles" groups=["7", "c", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(-1353, -1300)
+
+[node name="8_4" parent="Tiles" groups=["2", "P_start", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, 1300)
+color = 2
+
+[node name="8_5" parent="Tiles" groups=["3", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, 780)
+color = 1
+
+[node name="8_8" parent="Tiles" groups=["6", "i"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, -780)
+color = 1
+
+[node name="8_9" parent="Tiles" groups=["7", "i", "p_start"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1353, -1300)
+
+[node name="9_5" parent="Tiles" groups=["2", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, 1040)
+
+[node name="9_6" parent="Tiles" groups=["3", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, 520)
+color = 2
+
+[node name="9_8" parent="Tiles" groups=["5", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, -520)
+
+[node name="9_9" parent="Tiles" groups=["6", "k"] instance=ExtResource("2_hnl5f")]
+position = Vector2(1804, -1040)
+color = 2
+
+[node name="Pieces" type="Node2D" parent="."]
+
+[node name="King" parent="Pieces" node_paths=PackedStringArray("current_tile") instance=ExtResource("3_l1s42")]
+position = Vector2(-902, 2080)
+current_tile = NodePath("../../Tiles/3_0")
+
+[node name="Rook" parent="Pieces" node_paths=PackedStringArray("current_tile") instance=ExtResource("4_p5u7n")]
+position = Vector2(451, 2340)
+piece_color = 1
+current_tile = NodePath("../../Tiles/6_1")
+
+[node name="Rook2" parent="Pieces" node_paths=PackedStringArray("current_tile") instance=ExtResource("4_p5u7n")]
+position = Vector2(0, 520)
+piece_color = 1
+current_tile = NodePath("../../Tiles/5_4")
+
+[node name="Pawn" parent="Pieces" node_paths=PackedStringArray("current_tile") instance=ExtResource("5_ouwly")]
+position = Vector2(-451, 780)
+piece_color = 1
+current_tile = NodePath("../../Tiles/4_3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_qj4g0")
+}

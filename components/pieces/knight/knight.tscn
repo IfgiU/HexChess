@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://4becyput5qmj"]
+
+[ext_resource type="PackedScene" uid="uid://cvn4py2r71ksw" path="res://components/pieces/base_piece/base_piece.tscn" id="1_wcew2"]
+[ext_resource type="Script" path="res://components/pieces/knight/knight.gd" id="2_5e3x8"]
+[ext_resource type="Texture2D" uid="uid://du3mne05o3prx" path="res://components/pieces/knight/wN.png" id="3_1fss6"]
+
+[node name="Knight" instance=ExtResource("1_wcew2")]
+script = ExtResource("2_5e3x8")
+
+[node name="Texture" parent="." index="0"]
+texture = ExtResource("3_1fss6")
