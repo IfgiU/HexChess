@@ -108,27 +108,36 @@ layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
 script = ExtResource("1_aubo6")
-
-[node name="Bishop" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("2_1no8j")
-
-[node name="Knight" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
-layout_mode = 2
-mouse_filter = 1
-texture_normal = ExtResource("3_bmt5j")
 
 [node name="Queen" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
 texture_normal = ExtResource("4_14mwt")
 
 [node name="Rook" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 mouse_filter = 1
 texture_normal = ExtResource("5_dbx6n")
+
+[node name="Bishop" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+texture_normal = ExtResource("2_1no8j")
+
+[node name="Knight" type="TextureButton" parent="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+texture_normal = ExtResource("3_bmt5j")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="UI"]
 libraries = {
@@ -152,7 +161,7 @@ move_sounds = Array[AudioStream]([ExtResource("9_pxttv"), ExtResource("11_7i8jo"
 [connection signal="move_sound" from="Board" to="." method="_on_move"]
 [connection signal="promotion" from="Board" to="." method="open_promotion_menu"]
 [connection signal="pressed" from="UI/MarginContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Bishop" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_bishop_pressed"]
-[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Knight" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_knight_pressed"]
 [connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Queen" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_queen_pressed"]
 [connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Rook" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_rook_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Bishop" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_bishop_pressed"]
+[connection signal="pressed" from="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer/Knight" to="UI/Promotion/MarginContainer/PanelContainer/MarginContainer/HBoxContainer" method="_on_knight_pressed"]

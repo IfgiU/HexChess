@@ -7,6 +7,9 @@ extends Node
 @export_color_no_alpha var main_color: Color = Color("#cd8200")
 @export_color_no_alpha var secondary_color_1: Color
 @export_color_no_alpha var secondary_color_2: Color
+@export_color_no_alpha var background_color: Color = Color("#1d0701"):
+	set(new_color):
+		RenderingServer.set_default_clear_color(new_color)
 @export_color_no_alpha var black_pieces_color: Color = Color("#7D4F00")
 @export_color_no_alpha var white_pieces_color: Color = Color(1, 1, 1)
 
@@ -36,7 +39,8 @@ enum EndState {
 func _ready():
 	# Doesnt work
 	#load_config()
-	pass
+	# The set() method needs to get executed, so this sets it to the default value
+	background_color = background_color
 
 
 func load_config():

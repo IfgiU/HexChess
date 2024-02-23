@@ -25,8 +25,10 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 tab_alignment = 1
+current_tab = 1
 
 [node name="Audio" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="PlayAudio" type="CheckBox" parent="VBoxContainer/TabContainer/Audio"]
@@ -34,7 +36,6 @@ layout_mode = 2
 text = "Play move and check sounds"
 
 [node name="Graphics" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="UseMainColor" type="CheckBox" parent="VBoxContainer/TabContainer/Graphics"]
@@ -122,6 +123,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 20.0
 text = "Black Pieces Color"
+
+[node name="BackgroundColor" type="HBoxContainer" parent="VBoxContainer/TabContainer/Graphics"]
+layout_mode = 2
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="VBoxContainer/TabContainer/Graphics/BackgroundColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 1)
+edit_alpha = false
+script = ExtResource("1_oxkcx")
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Graphics/BackgroundColor"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 20.0
+text = "Background color"
 
 [node name="PlayAnim" type="CheckBox" parent="VBoxContainer/TabContainer/Graphics"]
 layout_mode = 2

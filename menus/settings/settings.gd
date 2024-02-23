@@ -12,6 +12,8 @@ func _ready():
 	$VBoxContainer/TabContainer/Graphics/SecondaryColor1/ColorPickerButton.set_pick_color(Global.secondary_color_1)
 	# Secondary 2
 	$VBoxContainer/TabContainer/Graphics/SecondaryColor2/ColorPickerButton.set_pick_color(Global.secondary_color_2)
+	# Background
+	$VBoxContainer/TabContainer/Graphics/BackgroundColor/ColorPickerButton.set_pick_color(Global.background_color)
 	# White Pieces Color
 	$VBoxContainer/TabContainer/Graphics/WhitePiecesColor/ColorPickerButton.set_pick_color(Global.white_pieces_color)
 	# Black Pieces Color
@@ -32,9 +34,11 @@ func save_and_quit():
 	Global.secondary_color_1 = $VBoxContainer/TabContainer/Graphics/SecondaryColor1/ColorPickerButton.get_pick_color()
 	# Secondary 2 Color Picker
 	Global.secondary_color_2 = $VBoxContainer/TabContainer/Graphics/SecondaryColor2/ColorPickerButton.get_pick_color()
-	# White Pieces Colorr
+	# Background Color Picker
+	Global.background_color = $VBoxContainer/TabContainer/Graphics/BackgroundColor/ColorPickerButton.get_pick_color()
+	# White Pieces Color Picker
 	Global.white_pieces_color = $VBoxContainer/TabContainer/Graphics/WhitePiecesColor/ColorPickerButton.get_pick_color()
-	# Black Pieces Color
+	# Black Pieces Color Picker
 	Global.black_pieces_color = $VBoxContainer/TabContainer/Graphics/BlackPiecesColor/ColorPickerButton.get_pick_color()
 	# Play player changing animation
 	Global.play_board_rotation = $VBoxContainer/TabContainer/Graphics/PlayAnim.button_pressed
