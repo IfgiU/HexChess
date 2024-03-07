@@ -38,7 +38,7 @@ func save_and_quit():
 	Global.background_color = $VBoxContainer/TabContainer/Graphics/BackgroundColor/ColorPickerButton.get_pick_color()
 	# White Pieces Color Picker
 	Global.white_pieces_color = $VBoxContainer/TabContainer/Graphics/WhitePiecesColor/ColorPickerButton.get_pick_color()
-	# Black Pieces Color Picker
+	# Black Pieces Color Pickergith
 	Global.black_pieces_color = $VBoxContainer/TabContainer/Graphics/BlackPiecesColor/ColorPickerButton.get_pick_color()
 	# Play player changing animation
 	Global.play_board_rotation = $VBoxContainer/TabContainer/Graphics/PlayAnim.button_pressed

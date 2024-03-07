@@ -25,10 +25,8 @@ layout_mode = 2
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 tab_alignment = 1
-current_tab = 1
 
 [node name="Audio" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 
 [node name="PlayAudio" type="CheckBox" parent="VBoxContainer/TabContainer/Audio"]
@@ -36,6 +34,7 @@ layout_mode = 2
 text = "Play move and check sounds"
 
 [node name="Graphics" type="VBoxContainer" parent="VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 
 [node name="UseMainColor" type="CheckBox" parent="VBoxContainer/TabContainer/Graphics"]
@@ -151,6 +150,7 @@ size_flags_vertical = 3
 [node name="BackButton" type="Button" parent="VBoxContainer/BottomMenu"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "<- Back"
+theme_override_font_sizes/font_size = 75
+text = "Back"
 
 [connection signal="pressed" from="VBoxContainer/BottomMenu/BackButton" to="." method="save_and_quit"]
